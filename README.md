@@ -1,6 +1,6 @@
 # Base16 Template Converter
 
-This script converts [Base16](https://github.com/chriskempson/base16) written
+This script converts [Base16](https://github.com/chriskempson/base16) templates written
 using the old Embedded Ruby syntax to the new Mustache syntax.
 
 ## Usage
