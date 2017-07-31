@@ -3,7 +3,7 @@
 # Base16 Template Converter
 # URL: https://github.com/ntpeters/base16-template-converter
 # Author: Nate Peterson
-# 
+#
 # This script converts old-style Base16 templates written in
 # Embedded Ruby syntax to the Mustache syntax.
 # ------------------------------------------------------------------
@@ -29,7 +29,7 @@ function main() {
     if [[ ! "$srcFileExtension" = "erb" ]]; then
         echo -e "\nWARNING: Expected '.erb' (Embedded Ruby) file, but input points to file with extension '.$srcFileExtension'"
     fi
-    
+
     # GNU sed is required for regex extensions support
     if [[ ! "$(sed --version | head -n 1)" = *"GNU sed"* ]]; then
         echo -e "\nWARNING: You may be using an incompatible version of sed. GNU sed is required."
@@ -148,7 +148,7 @@ function replaceInFile() {
     local find="$1"
     local replace="$2"
     local file="$3"
-    
+
     local expr="s/${find}/${replace}/g"
     sed -i "$file" -e "$expr"
 }
@@ -197,10 +197,11 @@ function newColorPattern() {
     local base="$1"
     local type="$2"
     local index="$3"
-    
+
     case $type in
         "hexbgr") echo "$(hexbgr ${base} ${index})"; ;;
         "dhex") echo "$(dhex ${base} ${index})"; ;;
+        "srgb") echo "$(composeType ${base} dec ${index})"; ;;
         *) echo "$(composeType ${base} ${type} ${index})"; ;;
     esac
 }
